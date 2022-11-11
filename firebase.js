@@ -19,12 +19,11 @@
 
         const db = getFirestore(app);
 
-        async function addTask(){
+        export async function addTask(title,description){
           try {
-            const docRef = await addDoc(collection(db, "users"), {
-              first: "Ada",
-              last: "Lovelace",
-              born: 1815
+            const docRef = await addDoc(collection(db, "task"), {
+              title: title,
+              description: description,
             });
             console.log("Document written with ID: ", docRef.id);
           } catch (e) {
